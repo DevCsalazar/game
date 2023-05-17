@@ -1,4 +1,52 @@
-const opt = ["rock", "paper", "scissors"];
+const playerSelectionDisplay = document.getElementById('playerSelection');
+const computerSelectionDisplay = document.getElementById('computerSelection');
+const resulDisplay = document.getElementById('result');
+const possibleChoices = document.querySelectorAll('button');
+
+let playerSelection
+let computerSelection
+let result
+
+possibleChoices.forEach(possibleChoices => possibleChoices.addEventListener('click',(e) => {
+    playerSelection = e.target.id;
+    playerSelectionDisplay.innerHTML = playerSelection;
+    getComputerChoice();
+    playRound();
+}))
+
+function getComputerChoice() {
+    const numRandom = Math.floor(Math.random() * possibleChoices.length);
+    if(numRandom === 0){
+        computerSelection = 'rock';
+    }
+    if(numRandom === 1){
+        computerSelection = 'scissors';
+    }
+    if(numRandom === 2){
+        computerSelection = 'paper';
+    }
+    computerSelectionDisplay.innerHTML = computerSelection;
+}
+
+function playRound(){
+    if(playerSelection ===  computerSelection){
+        result = 'Tie';
+    }else if(playerSelection === 'rock' && computerSelection === 'paper'){
+        result = 'You Lose!';
+    }else if(playerSelection === 'rock' && computerSelection === 'scissors'){
+        result = 'You Win!';
+    }else if(playerSelection === 'paper' && computerSelection === 'scissors'){
+        result = 'You Lose!';
+    }else if(playerSelection === 'paper' && computerSelection === 'rock'){
+        result = 'You Win!';
+    }else if(playerSelection === 'scissors' && computerSelection === 'rock'){
+        result = 'You Lose!';
+    }else if(playerSelection === 'scissors' && computerSelection === 'paper'){
+        result = 'You Win!';
+    }
+    resulDisplay.innerHTML = result;
+}
+/* const opt = ["rock", "paper", "scissors"];
 
 function getComputerChoice() {
     const numRandom = Math.floor(Math.random() * opt.length);
@@ -28,13 +76,9 @@ function playRound(playerSelection, computerSelection){
         return "No valid option";
     }
 }
-
-const playerSelection = prompt("Choose among Rock, Paper or Scissors").toLowerCase();
-const computerSelection = getComputerChoice();
-
-alert(playRound(playerSelection,computerSelection));
  
-/* function game(){
-    return playRound(playerSelection,computerSelection);
-} */
-
+ function game(){
+    const playerSelection = prompt("Choose among Rock, Paper or Scissors").toLowerCase();
+    const computerSelection = getComputerChoice();
+    return playRound(playerSelection, computerSelection)
+}  */

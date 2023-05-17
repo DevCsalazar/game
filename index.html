@@ -10,14 +10,33 @@
 <body>
     <nav class="menu-container">
         <div class="menu">
-            <div class="tittle">Rock, Paper or Scissors</div>
+            <div class="tittle">Rock Paper or Scissors</div>
         </div>
     </nav>
     <div class="header-container">
         <div class="header">
-            <div class="btn-1"><button>Rock</button></div>
-            <div class="btn-2"><button>Paper</button></div>
-            <div class="btn-3"><button>Sccisors</button></div>
+            <div class="button"><button id="rock">Rock</button></div>
+            <div class="button"><button id="paper">Paper</button></div>
+            <div class="button"><button id="scissors">Sccisors</button></div>
+        </div>
+    </div>
+    <div class="section-container">
+        <div class="section">
+            <div class="selection-result"> 
+                <p>You Chose: </p>
+                <br>
+                <p id="playerSelection"></p>
+            </div>
+            <div class="selection-result">
+                <p>Result: </p>
+                <br>
+                <p id="result"></p>
+            </div>
+            <div class="selection-result">
+                <p>JS Chose: </p>
+                <br>
+                <p id="computerSelection"></p>
+            </div>
         </div>
     </div>
     <footer class="footer">
@@ -26,6 +45,6 @@
         <div class="footer-item footer-three"></div>
     </footer>
 
-<!--     <script src="js/rules2.js"></script>
- --></body>
+     <script src="js/rules2.js"></script>
+    </body>
 </html>
