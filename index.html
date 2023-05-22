@@ -13,32 +13,38 @@
             <div class="tittle">Rock Paper or Scissors</div>
         </div>
     </nav>
-    <div class="header-container">
-        <div class="header">
-            <div class="button"><button id="rock">Rock</button></div>
-            <div class="button"><button id="paper">Paper</button></div>
-            <div class="button"><button id="scissors">Sccisors</button></div>
+    <section>
+        <p class="instructions" id="instructions">First to 5 points WINS!</p>
+        <div class="scoreboard">
+            <p class="name player-name">Player</p>
+            <p class="name js-name">JavaScript</p>
+            <p class="score">
+                <span id="player-score">0</span>
+                <span>-</span>
+                <span id="js-score">0</span>
+            </p>
         </div>
-    </div>
-    <div class="section-container">
-        <div class="section">
-            <div class="selection-result"> 
-                <p>You Chose: </p>
-                <br>
-                <p id="playerSelection"></p>
-            </div>
-            <div class="selection-result">
-                <p>Result: </p>
-                <br>
-                <p id="result"></p>
-            </div>
-            <div class="selection-result">
-                <p>JS Chose: </p>
-                <br>
-                <p id="computerSelection"></p>
+        <div class="choose-weapon" id="choose-weapon">
+            <h2>Choose your weapon</h2>
+            <div class="weapons">
+                <button class="weapon" id="rock🪨">🪨</button>
+                <button class="weapon" id="paper📄">📄</button>
+                <button class="weapon" id="scissors✂️">✂️</button>
             </div>
         </div>
-    </div>
+        <div class="message disabled" id="message">
+            <p>You chose 
+                <span class="selection" id="playerSelection">Rock🪨</span> 
+                and JavaScript chose 
+                <span class="selection" id="computerSelection">Rock🪨</span>
+            </p>
+            <br>
+            <br>
+            <br>
+            <p id="point-win">You won a point</p>
+        </div>
+        <button class="btn disabled" id="restart">Restart Game</button>
+    </section>
     <footer class="footer">
         <div class="footer-item footer-one"></div>
         <div class="footer-item footer-two"><p>Made by DevCsalazar<p></div>
@@ -46,5 +52,6 @@
     </footer>
 
      <script src="js/rules2.js"></script>
+
     </body>
 </html>

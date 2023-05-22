@@ -1,51 +1,92 @@
-const playerSelectionDisplay = document.getElementById('playerSelection');
-const computerSelectionDisplay = document.getElementById('computerSelection');
-const resulDisplay = document.getElementById('result');
-const possibleChoices = document.querySelectorAll('button');
+let playerScore = 0;
+let jsScore = 0;
 
-let playerSelection
-let computerSelection
-let result
+const instructions = document.querySelector('#instructions');
+const containerPlayerScore = document.querySelector('#player-score');
+const containerJsScore = document.querySelector('#js-score');
+const message = document.querySelector('#message');
+const containerPointWin = document.querySelector('#point-win');
+const choseWapon = document.querySelector('#choose-weapon');
+const playerSelectionDisplay = document.querySelector('#playerSelection');
+const computerSelectionDisplay = document.querySelector('#computerSelection');
+const btnWeapons = document.querySelectorAll(".weapon");
 
-possibleChoices.forEach(possibleChoices => possibleChoices.addEventListener('click',(e) => {
-    playerSelection = e.target.id;
-    playerSelectionDisplay.innerHTML = playerSelection;
-    getComputerChoice();
-    playRound();
-}))
+btnWeapons.forEach(btn => {
+    btn.addEventListener("click", playRound);
+})
 
-function getComputerChoice() {
-    const numRandom = Math.floor(Math.random() * possibleChoices.length);
-    if(numRandom === 0){
-        computerSelection = 'rock';
+function playRound(e){
+    let computerSelection = Math.floor(Math.random() * 3);
+    let playerSelection = e.currentTarget.id;
+    
+    if(computerSelection === 0){
+        computerSelection = "rock🪨";
+    }else if(computerSelection === 1){
+        computerSelection = "paper📄";
+    }else{
+        computerSelection = "scissors✂️";
     }
-    if(numRandom === 1){
-        computerSelection = 'scissors';
-    }
-    if(numRandom === 2){
-        computerSelection = 'paper';
-    }
-    computerSelectionDisplay.innerHTML = computerSelection;
+    console.log("User: " + playerSelection);
+    console.log("JS: " + computerSelection);
+
+    if((playerSelection === "rock🪨" && computerSelection === "scissors✂️") ||
+       (playerSelection === "scissors✂️" && computerSelection === "paper📄") ||
+       (playerSelection === "paper📄" && computerSelection === "rock🪨")){
+        userWin();
+       }else if((computerSelection === "rock🪨" && playerSelection === "scissors✂️") ||
+       (computerSelection === "scissors✂️" && playerSelection === "paper📄") ||
+       (computerSelection === "paper📄" && playerSelection === "rock🪨")){
+        jsWin();
+       }else {
+        tie();
+       }
+       message.classList.remove("disabled");
+       playerSelectionDisplay.innerText = playerSelection;
+       computerSelectionDisplay.innerText = computerSelection;
+
+       if(playerScore === 5 || jsScore === 5){
+        if(playerScore === 5){
+            instructions.innerText = "You won the game";
+        }
+        if(jsScore === 5){
+            instructions.innerText = "JS won the game"
+        }
+        choseWapon.classList.add("disabled");
+        restart.classList.remove("disabled");
+        restart.addEventListener("click", restartGame);
+       }
 }
 
-function playRound(){
-    if(playerSelection ===  computerSelection){
-        result = 'Tie';
-    }else if(playerSelection === 'rock' && computerSelection === 'paper'){
-        result = 'You Lose!';
-    }else if(playerSelection === 'rock' && computerSelection === 'scissors'){
-        result = 'You Win!';
-    }else if(playerSelection === 'paper' && computerSelection === 'scissors'){
-        result = 'You Lose!';
-    }else if(playerSelection === 'paper' && computerSelection === 'rock'){
-        result = 'You Win!';
-    }else if(playerSelection === 'scissors' && computerSelection === 'rock'){
-        result = 'You Lose!';
-    }else if(playerSelection === 'scissors' && computerSelection === 'paper'){
-        result = 'You Win!';
-    }
-    resulDisplay.innerHTML = result;
+function userWin(){
+    playerScore++;
+    containerPlayerScore.innerText = playerScore;
+    containerPointWin.innerText = "You earned a point";
 }
+
+function jsWin(){
+    jsScore++;
+    containerJsScore.innerText = jsScore;
+    containerPointWin.innerText = "JS has won one point"
+}
+
+function tie(){
+    containerPointWin.innerText = "TIE"
+}
+
+function restartGame(){
+    restart.classList.add("disabled");
+    choseWapon.classList.remove("disabled");
+    message.classList.add("disabled");
+
+    playerScore = 0;
+    jsScore = 0;
+
+    containerPlayerScore.innerText = playerScore;
+    containerJsScore.innerText = jsScore;
+    instructions.innerText = "First to 5 points WINS!";
+}
+
+
 /* const opt = ["rock", "paper", "scissors"];
 
 function getComputerChoice() {

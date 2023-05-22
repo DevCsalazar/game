@@ -1,8 +1,8 @@
 *{
+    box-sizing: border-box;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 .menu-container{
     color: #fff;
@@ -12,7 +12,127 @@
     display: flex;
     justify-content: center;
 }
-.menu{
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    text-align: center;
+}
+.instructions{
+    color: #5995da;
+    margin-bottom: 2rem;
+    font-size: 2.2rem;
+    font-weight: 800;
+}
+.scoreboard{
+    background-color: #5995da;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.scoreboard .name{
+    position: absolute;
+    color: #fff;
+    background-color: #5995da;
+    line-height: 1;
+    padding: .5rem;
+    border-radius: .5rem;
+    border: 2px solid #fff;
+}
+.scoreboard .player-name{
+    right: 90%;
+}
+.scoreboard .js-name{
+    left: 90%;
+}
+.scoreboard .score{
+    font-size: 1.5rem;
+}
+.choose-weapon{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+.choose-weapon h2{
+    color: #5995da;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+.weapons{
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+}
+.weapon{
+    background-color: #d6e9fe;
+    border: .1rem solid #5995da;
+    border-radius: 1rem;
+    cursor: pointer;
+    font-size: 2.5rem;
+    padding: .5rem;
+}
+.message{
+    margin-bottom: 3rem;
+    line-height: 1;
+    color: #5995da;
+}
+.message .selection{
+    color: #fff;
+    background-color: #5995da;
+    border-radius: .25rem;
+    padding-inline: .35rem;
+    text-transform: uppercase;
+}
+.btn{
+    background-color: #d6e9fe;
+    color: #5995da;
+    border: 2px solid #5995da;
+    border-radius: 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    line-height: 1;
+    text-transform: uppercase;
+}
+.disabled{
+    display: none;
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+}
+.footer-item{
+    border: 1px solid #fff;
+    background-color: #5995da;
+    height: 100px;
+    flex: 1;
+}
+.footer-three{
+    flex: 2;
+}
+.footer-one ,
+.footer-three{
+    background-color: #5995da;
+    flex: initial;
+    width: 300px;
+}
+.footer-two{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+/* .menu{
     border: 1px solid #fff;
     width: 900px;
     display: flex;
@@ -39,7 +159,7 @@ button{
     font-size: 18px;
     width: 150px;
     height: 45px;
-}
+} 
 .section-container{
     color: #d6e9fe;
     background-color: white;
@@ -62,29 +182,4 @@ button{
     width: 250px;
     height: 75px;
     text-align: center;
-}
-.footer{
-    display: flex;
-    justify-content: space-between;
-}
-.footer-item{
-    border: 1px solid #fff;
-    background-color: #5995da;
-    height: 80px;
-    flex: 1;
-}
-.footer-three{
-    flex: 2;
-}
-.footer-one ,
-.footer-three{
-    background-color: #5995da;
-    flex: initial;
-    width: 300px;
-}
-.footer-two{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-}
+}*/
